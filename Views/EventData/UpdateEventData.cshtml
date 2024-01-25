@@ -1,0 +1,57 @@
+﻿@model EventData
+
+<h2>Update @Model.EventName</h2>
+
+@using (Html.BeginForm("UpdateEventToDatabase", "EventData", "Post"))
+{
+    <input asp-for="EventID" type="hidden" value="@Model.EventID" />
+
+    @*<label asp-for="EventName" class="control-label">Event Name</label>
+        <input type="text" name="EventName" class="form-control" value="@Model.EventName" />
+
+        <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+        <input type="datetime" name="DateandTime" class="form-control" value="@Model.DateAndTime" />
+
+        <label asp-for="Location" class="control-label">Location</label>
+        <input type="text" name="Location" class="form-control" value="@Model.Location" />
+
+        <label asp-for="Description" class="control-label">Description</label>
+        <input type="text" name="Description" class="form-control" value="@Model.Description" />*@
+
+    <label asp-for="EventName" class="control-label">Event Name</label>
+    <input asp-for="EventName" class="form-control" />
+
+    <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+    <input asp-for="DateAndTime" class="form-control" />
+
+    <label asp-for="Location" class="control-label">Location</label>
+    <input asp-for="Location" class="form-control" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input asp-for="Description" class="form-control" />
+
+    <input type="submit" value="Update Event" class="btn btn-primary" />
+}
+
+@*@model EventData
+
+<h2>Create a New Event</h2>
+
+@using (Html.BeginForm("UpdateEventToDatabase", "EventData", FormMethod.Post))
+{
+    <input asp-for="EventID" type="hidden" value="" />
+
+    <label asp-for="EventName" class="control-label">Event Name</label>
+    <input asp-for="EventName" class="form-control" />
+
+    <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+    <input asp-for="DateAndTime" class="form-control" />
+
+    <label asp-for="Location" class="control-label">Location</label>
+    <input asp-for="Location" class="form-control" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input asp-for="Description" class="form-control" />
+
+    <input type="submit" value="Create Event" class="btn btn-primary" />
+}*@

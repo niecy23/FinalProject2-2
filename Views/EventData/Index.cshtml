@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EventData>
+
+<h2>Events</h2>
+
+<div style="display: block">
+    <a href="/EventData/InsertEventData/">Create a New Event</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date and Time</th>
+        <th>Location</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td><a href=/EventData/EventDetails/@item.EventID>@item.EventID</a></td>
+            <td>@item.EventName</td>
+            <td>@item.DateAndTime</td>
+            <td>@item.Location</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+
+</table>
+

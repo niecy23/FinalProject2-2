@@ -1,0 +1,62 @@
+﻿@model FinalProject2.Models.EventDetailsViewModel
+
+<h2>@Model.EventData.EventName Information</h2>
+
+<h5 class="display-7">RSVP Count: @Model.UsersAttending.Count()</h5>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date and Time</th>
+        <th>Location</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>@Model.EventData.EventID</td>
+        <td>@Model.EventData.EventName</td>
+        <td>@Model.EventData.DateAndTime</td>
+        <td>@Model.EventData.Location</td>
+        <td>@Model.EventData.Description</td>
+    </tr>
+</table>
+
+<h2>Users Attending:</h2>
+
+<table class="table">
+    <tr>
+        <th>User ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+    </tr>
+
+    <tr>
+        @foreach (var user in Model.UsersAttending)
+        {
+        <tr>
+            <td><a href=/User/ViewUser/@user.UserID>@user.UserID</a></td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.EmailAddress</td>
+            <td>@user.PhoneNumber</td>
+        </tr>
+    }
+        </tr>
+
+    </table>
+
+    <div style="display: block">
+        <a href="/EventData/UpdateEventData/@Model.EventData.EventID">Update this Event</a>
+    </div>
+
+    <div style="display: block">
+
+        @using (Html.BeginForm("DeleteEventData", "EventData", "Post"))
+        {
+            <input type="hidden" asp-for="EventData.EventID" value="@Model.EventData.EventID" />
+            <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Event" />
+        }
+    </div>

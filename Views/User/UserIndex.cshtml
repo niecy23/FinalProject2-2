@@ -1,0 +1,54 @@
+﻿@model IEnumerable<User>
+
+<h2>Users</h2>
+
+<div style="display: block">
+    <a href="/User/InsertUser/">Create a New User</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>
+        <th>Event Name</th>
+    </tr>
+
+    @foreach (var user in @Model)
+    {
+        <tr>
+            <td><a href=/User/ViewUser/@user.UserID>@user.UserID</a></td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.EmailAddress</td>
+            <td>@user.PhoneNumber</td>
+            <td>@user.EventID</td>
+            <td>@user.EventName</td>
+        </tr>
+    }
+
+</table>
+
+<script>function sortTable(columnName) {
+        // Implement your sorting logic here
+        // You can use AJAX to retrieve sorted data from the server and update the table
+        // For simplicity, let's assume the server returns a sorted list named 'sortedUsers'
+
+        $.ajax({
+            url: '/User/SortUsers',
+            data: { column: columnName },
+            type: 'GET',
+            success: function (data) {
+                // Replace the table content with the sorted data
+                $('#userTable').html(data);
+            },
+            error: function () {
+                alert('Error occurred while sorting.');
+            }
+        });
+    }</script>
+
+

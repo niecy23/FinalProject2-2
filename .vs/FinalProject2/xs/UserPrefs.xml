@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{119E5F55-B623-4490-8622-7FD0A8B0FFF4}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/User/UpdateUser.cshtml">
+    <Files>
+      <File FileName="Views/User/UpdateUser.cshtml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FinalProject2" expanded="True">
+            <Node name="FinalProject2" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="User" expanded="True">
+                  <Node name="UpdateUser.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.FinalProject2 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
