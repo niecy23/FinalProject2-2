@@ -3,6 +3,8 @@ using System.Data;
 using Dapper;
 using FinalProject2.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace FinalProject2
 {
@@ -19,8 +21,13 @@ namespace FinalProject2
         {
             var eventList = GetAllEventsData();
             var user = new User();
-            user.EventsData = eventList;
+            user.EventsData = eventList.Select(e => new SelectListItem
+            {
+                Value = e.EventID.ToString(),
+                Text = $"{e.EventID} {e.EventName}"
+            });
             return user;
+            // user.EventsData = eventList;
         }
 
         public void DeleteUser(User user)

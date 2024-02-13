@@ -23,7 +23,7 @@
 
     <input type="hidden" id="ActualPhoneNumber" asp-for="PhoneNumber" />
 
-    <label asp-for="EventID" class="control-label">Event</label>
+    @* <label asp-for="EventID" class="control-label">Event</label>
     <select class="form-control" name="EventID">
         @foreach (var instance in Model.EventsData)
         {
@@ -32,7 +32,40 @@
                 @instance.EventID @instance.EventName
             </option>
         }
+    </select> *@
+
+<div class="form-group">
+    <label asp-for="EventID">Select an Event</label>
+    <select asp-for="EventID" class="form-control" asp-items="Model.EventsData">
+        <option value="">-- Select Event --</option>
     </select>
+    <span asp-validation-for="EventID" class="text-danger"></span>
+</div>
+
+
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input type="text" name="FirstName" class="form-control" value="@Model.FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input type="text" name="LastName" class="form-control" value="@Model.LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EmailAddress"></label>
+        <input type="text" name="EmailAddress" class="form-control" value="@Model.EmailAddress" />
+        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <input type="text" name="PhoneNumber" class="form-control" value="@Model.FirstName" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
 
     <input type="submit" value="Update User" class="btn btn-primary" />
 }

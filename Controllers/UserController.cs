@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinalProject2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 
 namespace FinalProject2.Controllers
@@ -29,33 +31,54 @@ namespace FinalProject2.Controllers
             return View(user);
         }
 
-        public IActionResult UpdateUser(int id)
-        {
-            User user = repo.GetUser(id);
-            if (user == null)
-            {
-                return View("UserNotFound");
-            }
+        // public IActionResult UpdateUser(int id)
+        // {
+        //     User user = repo.GetUser(id);
+        //     if (user == null)
+        //     {
+        //         return View("UserNotFound");
+        //     }
 
-            var allEvents = repo.GetAllEventsData().ToList();
+        //     var allEvents = repo.GetAllEventsData().ToList();
 
-            var currentUserEvent = allEvents.FirstOrDefault(e => e.EventID == user.EventID);
+        //     var currentUserEvent = allEvents.FirstOrDefault(e => e.EventID == user.EventID);
 
-            if (currentUserEvent != null)
-            {
-                // Construct a new list with the desired order
-                var updatedEvents = new List<EventData> { currentUserEvent };
-                updatedEvents.AddRange(allEvents.Where(e => e.EventID != user.EventID));
+        //     if (currentUserEvent != null)
+        //     {
+        //         // Construct a new list with the desired order
+        //         var updatedEvents = new List<EventData> { currentUserEvent };
+        //         updatedEvents.AddRange(allEvents.Where(e => e.EventID != user.EventID));
 
-                user.EventsData = updatedEvents; // Update the user object's EventsData property
-                user.SelectedEventID = user.EventID;
-            }
+        //         user.EventsData = updatedEvents; // Update the user object's EventsData property
+        //         user.SelectedEventID = user.EventID;
+        //     }
 
-            // Ensure that the selected event is set in the user object
-            user.SelectedEventID = user.EventID;
+        //     // Ensure that the selected event is set in the user object
+        //     user.SelectedEventID = user.EventID;
 
-            return View(user);
-        }
+        //     return View(user);
+        // }
+
+
+public IActionResult UpdateUser(int id)
+{
+    User user = repo.GetUser(id);
+    if (user == null)
+    {
+        return View("UserNotFound");
+    }
+
+    // Populate the EventsData property
+    var allEvents = repo.GetAllEventsData().ToList();
+    user.EventsData = allEvents.Select(e => new SelectListItem
+    {
+        Value = e.EventID.ToString(),
+        Text = $"{e.EventID} {e.EventName}",
+        Selected = e.EventID == user.EventID
+    });
+
+    return View(user);
+}
 
         public IActionResult UpdateUserToDatabase(User user)
         {
