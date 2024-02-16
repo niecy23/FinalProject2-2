@@ -11,7 +11,16 @@
     "FinalProject2": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7269;http://localhost:5295",
+      "applicationUrl": "https://localhost:7001;http://localhost:7000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7222",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

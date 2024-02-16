@@ -14,6 +14,8 @@
         <th>Email Address</th>
         <th>Phone Number</th>
         <th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>
+
+        @*<th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>*@
         <th>Event Name</th>
     </tr>
 
@@ -32,7 +34,37 @@
 
 </table>
 
+<input type="hidden" id="sortOrder" value="asc" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>function sortTable(columnName) {
+        // Get the current sort order
+        var currentSortOrder = $('#sortOrder').val();
+
+        // Toggle the sort order
+        var newSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+
+        // Update the hidden input value
+        $('#sortOrder').val(newSortOrder);
+
+        // Make AJAX request with the updated sort order
+    $.ajax({
+        url: '/User/SortUsers',
+        data: { column: columnName, sortOrder: newSortOrder },
+        type: 'GET',
+        success: function (data) {
+            // Replace the table content with the sorted data
+            $('.table tbody').html(data);
+        },
+        error: function () {
+            alert('Error occurred while sorting.');
+        }
+    });
+
+    }</script>
+
+
+@*<script>function sortTable(columnName) {
         // Implement your sorting logic here
         // You can use AJAX to retrieve sorted data from the server and update the table
         // For simplicity, let's assume the server returns a sorted list named 'sortedUsers'
@@ -49,6 +81,22 @@
                 alert('Error occurred while sorting.');
             }
         });
+    }</script>*@
+<script>function sortTable(columnName) {
+        // Implement your sorting logic here
+        // You can use AJAX to retrieve sorted data from the server and update the table
+        // For simplicity, let's assume the server returns a sorted list named 'sortedUsers'
+
+        $.ajax({
+            url: '/User/SortUsers',
+            data: { column: columnName },
+            type: 'GET',
+            success: function (data) {
+                // Replace the table content with the sorted data
+                $('.table').html(data);
+            },
+            error: function () {
+                alert('Error occurred while sorting.');
+            }
+        });
     }</script>
-
-

@@ -105,18 +105,18 @@ public IActionResult UpdateUser(int id)
             return RedirectToAction("UserIndex");
         }
 
-        public IActionResult SortUsers(string column)
+        public IActionResult SortUsers(string column, string sortOrder)
         {
             // Assuming you have a repository method to retrieve all users
             var allUsers = repo.GetAllUsers();
 
-            // Implement sorting logic based on the specified column
+            // Implement sorting logic based on the specified column and sortOrder
             IEnumerable<User> sortedUsers;
 
             switch (column)
             {
                 case "EventID":
-                    sortedUsers = allUsers.OrderBy(u => u.EventID);
+                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
                     break;
                 // Add additional cases for other columns if needed
                 default:
@@ -127,6 +127,30 @@ public IActionResult UpdateUser(int id)
             // Return a partial view with the sorted users
             return PartialView("_UserTablePartial", sortedUsers);
         }
+
+
+        //public IActionResult SortUsers(string column)
+        //{
+        //    // Assuming you have a repository method to retrieve all users
+        //    var allUsers = repo.GetAllUsers();
+
+        //    // Implement sorting logic based on the specified column
+        //    IEnumerable<User> sortedUsers;
+
+        //    switch (column)
+        //    {
+        //        case "EventID":
+        //            sortedUsers = allUsers.OrderBy(u => u.EventID);
+        //            break;
+        //        // Add additional cases for other columns if needed
+        //        default:
+        //            sortedUsers = allUsers;
+        //            break;
+        //    }
+
+        //    // Return a partial view with the sorted users
+        //    return PartialView("_UserTablePartial", sortedUsers);
+        //}
     }
 }
 
