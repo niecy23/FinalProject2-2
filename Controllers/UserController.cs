@@ -116,7 +116,8 @@ public IActionResult UpdateUser(int id)
             switch (column)
             {
                 case "EventID":
-                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    //sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
                     break;
                 // Add additional cases for other columns if needed
                 default:
@@ -128,6 +129,35 @@ public IActionResult UpdateUser(int id)
             return PartialView("_UserTablePartial", sortedUsers);
         }
 
+        public IActionResult SortUsersDesc(string column, string sortOrder)
+        {
+            // Assuming you have a repository method to retrieve all users
+            var allUsers = repo.GetAllUsers();
+
+            // Implement sorting logic based on the specified column and sortOrder
+            IEnumerable<User> sortedUsers;
+
+            switch (column)
+            {
+                case "EventID":
+                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
+                    break;
+                // Add additional cases for other columns if needed
+                default:
+                    sortedUsers = allUsers;
+                    break;
+            }
+
+            // Return a partial view with the sorted users
+            //return PartialView("users", sortedUsers);
+            return PartialView("_UserTablePartial", sortedUsers);
+        }
+        //public IActionResult UserIndex()
+        //{
+        //    var users = repo.GetAllUsers();
+        //    return View(users);
+        //}
 
         //public IActionResult SortUsers(string column)
         //{

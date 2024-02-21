@@ -1,17 +1,28 @@
 ﻿<Properties StartupConfiguration="{119E5F55-B623-4490-8622-7FD0A8B0FFF4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/User/UserIndex.cshtml">
     <Files>
-      <File FileName="Views/User/UpdateUser.cshtml" />
-      <File FileName="Models/EventData.cs" />
-      <File FileName="Program.cs" Line="42" Column="1" />
+      <File FileName="Controllers/UserController.cs" />
+      <File FileName="Views/User/UserIndex.cshtml" Line="10" Column="9" />
+      <File FileName="Models/User.cs" />
+      <File FileName="Views/User/_UserTablePartial.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject2">
-            <Node name="FinalProject2">
+            <Node name="FinalProject2" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="User" expanded="True" />
+                <Node name="User" expanded="True">
+                  <Node name="UserIndex.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -19,11 +30,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.FinalProject2 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
 </Properties>
