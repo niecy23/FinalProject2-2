@@ -7,7 +7,7 @@ using Mysqlx.Crud;
 namespace FinalProject2
 {
     public class EventRepository : IEventRepository
-	{
+    {
         private readonly IDbConnection _conn;
 
         public EventRepository(IDbConnection conn)
@@ -39,7 +39,7 @@ namespace FinalProject2
         public void UpdateEventData(EventData instance)
         {
             _conn.Execute("UPDATE Events SET EventName = @name, DateAndTime = @dateandtime, Location = @location, Description = @description WHERE EventID = @id",
-            new{ name = instance.EventName, dateandtime = instance.DateAndTime, location = instance.Location, description = instance.Description, id = instance.EventID });
+            new { name = instance.EventName, dateandtime = instance.DateAndTime, location = instance.Location, description = instance.Description, id = instance.EventID });
         }
 
         public int GetRSVPCount(int id)
@@ -59,7 +59,6 @@ namespace FinalProject2
 
         public IEnumerable<User> GetAllUsers(int id)
         {
-            //return _conn.Query<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName FROM Events INNER JOIN Users ON Users.EventID = Events.EventID ORDER BY Users.UserID WHERE EVENTID = @id;");
             return _conn.Query<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName FROM Events INNER JOIN Users ON Users.EventID = Events.EventID WHERE Events.EVENTID = @id ORDER BY Users.UserID;",
                 new { id = id });
         }

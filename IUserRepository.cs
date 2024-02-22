@@ -3,8 +3,8 @@ using FinalProject2.Models;
 
 namespace FinalProject2
 {
-	public interface IUserRepository
-	{
+    public interface IUserRepository
+    {
         public IEnumerable<User> GetAllUsers();
         public User GetUser(int id);
         public void UpdateUser(User user);

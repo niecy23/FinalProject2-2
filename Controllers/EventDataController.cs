@@ -90,16 +90,3 @@ namespace FinalProject2.Controllers
         }
     }
 }
-        //public IActionResult EventDetails(int eventId)
-        //{
-        //    var eventData = repo.GetAllEvents().FirstOrDefault(e => e.EventID == eventId);
-        //    var usersAttending = repo.GetAllUsers(eventId).Where(u => u.EventID == eventId).ToList();
-
-        //    var viewModel = new EventDetailsViewModel
-        //    {
-        //        Event = eventData,
-        //        UsersAttending = usersAttending
-        //    };
-
-        //    return View(viewModel);
-        //}

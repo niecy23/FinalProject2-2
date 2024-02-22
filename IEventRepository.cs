@@ -3,8 +3,8 @@ using FinalProject2.Models;
 
 namespace FinalProject2
 {
-	public interface IEventRepository
-	{
+    public interface IEventRepository
+    {
         public IEnumerable<EventData> GetAllEventsData();
         public EventData GetEventData(int id);
         public void UpdateEventData(EventData instance);
@@ -17,7 +17,7 @@ namespace FinalProject2
         public IEnumerable<User> GetRSVPs(int id);
 
         public IEnumerable<User> GetAllUsers(int id);
-        
+
     }
 }
 

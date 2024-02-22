@@ -9,57 +9,28 @@ namespace FinalProject2.Models
     {
         public int UserID { get; set; }
 
-    [Required(ErrorMessage = "First Name is required.")]
-    public string FirstName { get; set; } = string.Empty;
+        [Required(ErrorMessage = "First Name is required.")]
+        public string FirstName { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Last Name is required.")]
-    public string LastName { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Last Name is required.")]
+        public string LastName { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Email Address is required.")]
-    [EmailAddress(ErrorMessage = "Invalid Email Address.")]
-    public string EmailAddress { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Email Address is required.")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+        public string EmailAddress { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Phone Number is required.")]
-    public string PhoneNumber { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Phone Number is required.")]
+        public string PhoneNumber { get; set; } = string.Empty;
 
-    
+
         public int EventID { get; set; }
 
-    public EventData Event { get; set; } = new EventData();
+        public EventData Event { get; set; } = new EventData();
 
-    public string EventName { get; set; } = string.Empty;
+        public string EventName { get; set; } = string.Empty;
 
-    public IEnumerable<SelectListItem> EventsData { get; set; } = Enumerable.Empty<SelectListItem>();
+        public IEnumerable<SelectListItem> EventsData { get; set; } = Enumerable.Empty<SelectListItem>();
 
-        // public int UserID { get; set; }
-
-        // [Required(ErrorMessage = "First Name is required.")]
-        // public string FirstName { get; set; }
-
-        // [Required(ErrorMessage = "Last Name is required.")]
-        // public string LastName { get; set; }
-
-        // [Required(ErrorMessage = "Email Address is required.")]
-        // [EmailAddress(ErrorMessage = "Invalid Email Address.")]
-        // public string EmailAddress { get; set; }
-
-        // [Required(ErrorMessage = "Phone Number is required.")]
-        // public string PhoneNumber { get; set; }
-
-        // [Required(ErrorMessage = "Event ID is required.")]
-        // public int EventID { get; set; }
-
-        // public EventData Event { get; set; }
-
-        // [Required(ErrorMessage = "Event Name is required.")]
-        // public string EventName { get; set; }
-
-        // public IEnumerable<EventData> EventsData { get; set; }
-
-        // [Required(ErrorMessage = "Selected Event ID is required.")]
-        // public int SelectedEventID { get; set; }
-
-        // public IEnumerable<SelectListItem> EventsData { get; set; }
 
         [Required(ErrorMessage = "Selected Event is required.")]
         public int SelectedEventID { get; set; }

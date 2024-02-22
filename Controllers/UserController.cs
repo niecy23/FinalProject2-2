@@ -31,54 +31,25 @@ namespace FinalProject2.Controllers
             return View(user);
         }
 
-        // public IActionResult UpdateUser(int id)
-        // {
-        //     User user = repo.GetUser(id);
-        //     if (user == null)
-        //     {
-        //         return View("UserNotFound");
-        //     }
+        public IActionResult UpdateUser(int id)
+        {
+            User user = repo.GetUser(id);
+            if (user == null)
+            {
+                return View("UserNotFound");
+            }
 
-        //     var allEvents = repo.GetAllEventsData().ToList();
+            // Populate the EventsData property
+            var allEvents = repo.GetAllEventsData().ToList();
+            user.EventsData = allEvents.Select(e => new SelectListItem
+            {
+                Value = e.EventID.ToString(),
+                Text = $"{e.EventID} {e.EventName}",
+                Selected = e.EventID == user.EventID
+            });
 
-        //     var currentUserEvent = allEvents.FirstOrDefault(e => e.EventID == user.EventID);
-
-        //     if (currentUserEvent != null)
-        //     {
-        //         // Construct a new list with the desired order
-        //         var updatedEvents = new List<EventData> { currentUserEvent };
-        //         updatedEvents.AddRange(allEvents.Where(e => e.EventID != user.EventID));
-
-        //         user.EventsData = updatedEvents; // Update the user object's EventsData property
-        //         user.SelectedEventID = user.EventID;
-        //     }
-
-        //     // Ensure that the selected event is set in the user object
-        //     user.SelectedEventID = user.EventID;
-
-        //     return View(user);
-        // }
-
-
-public IActionResult UpdateUser(int id)
-{
-    User user = repo.GetUser(id);
-    if (user == null)
-    {
-        return View("UserNotFound");
-    }
-
-    // Populate the EventsData property
-    var allEvents = repo.GetAllEventsData().ToList();
-    user.EventsData = allEvents.Select(e => new SelectListItem
-    {
-        Value = e.EventID.ToString(),
-        Text = $"{e.EventID} {e.EventName}",
-        Selected = e.EventID == user.EventID
-    });
-
-    return View(user);
-}
+            return View(user);
+        }
 
         public IActionResult UpdateUserToDatabase(User user)
         {
@@ -113,25 +84,99 @@ public IActionResult UpdateUser(int id)
             // Implement sorting logic based on the specified column and sortOrder
             IEnumerable<User> sortedUsers;
 
+            //switch (column)
+            //{
+            //    case "EventID":
+
+            //        while ("EventID" != null)
+            //        {
+            //            sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
+            //        }
+  
+            //    default:
+            //        sortedUsers = allUsers;
+            //        break;
+
+            //  //if (sortOrder == "desc")
+            //    //{
+            //    //    sortedUsers = allUsers.OrderByDescending(u => u.EventID);
+            //    //    return PartialView("_UserTablePartial", sortedUsers);
+            //    //    //return View(sortedUsers);
+            //    //}
+
+            //    //else
+            //    //{
+            //    //    sortedUsers = allUsers.OrderBy(u => u.EventID);
+            //    //    return PartialView("_UserTablePartial", sortedUsers);
+            //    //    //return View(sortedUsers);
+
+
+            //        //return PartialView("_UserTablePartial", sortedUsers);
+            //        ////return View(sortedUsers);
+            //}
+
+            //return PartialView("_UserTablePartial", sortedUsers);
+            //return View(sortedUsers);
+
             switch (column)
             {
                 case "EventID":
-                    //sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+
                     sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
+                    //sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    //return View(sortedUsers);
                     break;
+
                 // Add additional cases for other columns if needed
                 default:
                     sortedUsers = allUsers;
                     break;
+                    //return View(sortedUsers);
             }
 
-            // Return a partial view with the sorted users
+            //Return a partial view with the sorted users
             return PartialView("_UserTablePartial", sortedUsers);
+
+
         }
 
         public IActionResult SortUsersDesc(string column, string sortOrder)
         {
-            // Assuming you have a repository method to retrieve all users
+            //// Assuming you have a repository method to retrieve all users
+            //var allUsers = repo.GetAllUsers();
+
+            //// Implement sorting logic based on the specified column and sortOrder
+            //IEnumerable<User> sortedUsers;
+
+            //switch (column)
+            //{
+            //    case "EventID":
+
+            //        //if (sortOrder == null)
+            //        //{
+            //        //    return View(allUsers);
+            //        //}
+            //        if (sortOrder == "asc")
+            //        {
+            //            sortedUsers = allUsers.OrderBy(u => u.EventID);
+            //            return PartialView("_UserTablePartial", sortedUsers);
+            //            //return View(sortedUsers);
+            //        }
+            //        else 
+            //        {
+            //            sortedUsers = allUsers.OrderByDescending(u => u.EventID);
+            //            return PartialView("_UserTablePartial", sortedUsers);
+            //            //return View(sortedUsers);
+            //        }
+
+
+            //    default:
+            //        sortedUsers = allUsers;
+            //        return PartialView("_UserTablePartial", sortedUsers);
+            //        //return View(sortedUsers);
+            //}
+
+            //Assuming you have a repository method to retrieve all users
             var allUsers = repo.GetAllUsers();
 
             // Implement sorting logic based on the specified column and sortOrder
@@ -139,6 +184,17 @@ public IActionResult UpdateUser(int id)
 
             switch (column)
             {
+                //case "EventID":
+
+                //    while ("EventID" != null)
+                //    {
+                //        sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                //    }
+
+                //default:
+                //    sortedUsers = allUsers;
+                //    break;
+
                 case "EventID":
                     sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
                     //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
@@ -150,37 +206,11 @@ public IActionResult UpdateUser(int id)
             }
 
             // Return a partial view with the sorted users
-            //return PartialView("users", sortedUsers);
             return PartialView("_UserTablePartial", sortedUsers);
-        }
-        //public IActionResult UserIndex()
-        //{
-        //    var users = repo.GetAllUsers();
-        //    return View(users);
-        //}
 
-        //public IActionResult SortUsers(string column)
-        //{
-        //    // Assuming you have a repository method to retrieve all users
-        //    var allUsers = repo.GetAllUsers();
+        
 
-        //    // Implement sorting logic based on the specified column
-        //    IEnumerable<User> sortedUsers;
-
-        //    switch (column)
-        //    {
-        //        case "EventID":
-        //            sortedUsers = allUsers.OrderBy(u => u.EventID);
-        //            break;
-        //        // Add additional cases for other columns if needed
-        //        default:
-        //            sortedUsers = allUsers;
-        //            break;
-        //    }
-
-        //    // Return a partial view with the sorted users
-        //    return PartialView("_UserTablePartial", sortedUsers);
-        //}
     }
+}
 }
 

@@ -1,19 +1,15 @@
-﻿@*@model IEnumerable<User>
-
-    @foreach (var user in Model)
-    {
-        <tr>
-            <td><a href="/User/ViewUser/@user.UserID">@user.UserID</a></td>
-            <td>@user.FirstName</td>
-            <td>@user.LastName</td>
-            <td>@user.EmailAddress</td>
-            <td>@user.PhoneNumber</td>
-            <td>@user.EventID</td>
-            <td>@user.EventName</td>
-        </tr>
-    }*@
-
+﻿
 @model IEnumerable<User>
+
+<style>
+    .table {
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 8px; /* Add padding for better readability */
+        }
+</style>
 
 <table class="table">
     <tr>
@@ -22,9 +18,9 @@
         <th>Last Name</th>
         <th>Email Address</th>
         <th>Phone Number</th>
-        <th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>
-
         @*<th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>*@
+        <th><a href="javascript:void(0);" id="eventIDHeader">Event ID</a></th>
+
         <th>Event Name</th>
     </tr>
 
@@ -46,33 +42,40 @@
 <input type="hidden" id="sortOrder" value="asc" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>function sortTable(columnName) {
-        // Get the current sort order
-        var currentSortOrder = $('#sortOrder').val();
 
-        // Toggle the sort order
-        var newSortOrder = currentSortOrder === 'desc' ? 'asc' : 'desc';
+<script>// Define a global variable to store the current sorting order
+    var sortOrder = 'asc';
 
-        // Update the hidden input value
-        $('#sortOrder').val(newSortOrder);
+    // Function to toggle sorting order and update table
+    function sortTable(columnName) {
+        // Toggle sorting order
+        sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
 
-        // Make AJAX request with the updated sort order
-    $.ajax({
-        url: '/User/SortUsersDesc',
-        data: { column: columnName, sortOrder: newSortOrder },
-        type: 'GET',
-        success: function (data) {
-            // Replace the table content with the sorted data
-            $('.table tbody').html(data);
-        },
-        error: function () {
-            alert('Error occurred while sorting.');
-        }
-    });
+        // Make AJAX request to retrieve sorted data
+        $.ajax({
+            url: '/User/SortUsersDesc',
+            data: { column: columnName, sortOrder: sortOrder },
+            type: 'GET',
+            success: function (data) {
+                // Replace table content with sorted data
+                $('.table tbody').html(data);
 
-    }</script>
+                // Update EventID header to indicate sorting order
+                $('#eventIDHeader').text('Event ID ' + (sortOrder === 'desc' ? '▲' : '▼'));
+            },
+            error: function () {
+                alert('Error occurred while sorting.');
+            }
+        });
+    }
 
-<script>function sortTable(columnName) {
+    // Continuous sorting loop when EventID hyperlink is clicked
+    $('#eventIDHeader').on('click', function () {
+        // Call sortTable function with 'EventID' column
+        sortTable('EventID');
+    });</script>
+
+@*<script>function sortTable(columnName) {
         // Implement your sorting logic here
         // You can use AJAX to retrieve sorted data from the server and update the table
         // For simplicity, let's assume the server returns a sorted list named 'sortedUsers'
@@ -83,10 +86,10 @@
             type: 'GET',
             success: function (data) {
                 // Replace the table content with the sorted data
-                $('.table').html(data);
+                $('.table tbody').html(data);
             },
             error: function () {
                 alert('Error occurred while sorting.');
             }
         });
-    }</script>
+    }</script>*@

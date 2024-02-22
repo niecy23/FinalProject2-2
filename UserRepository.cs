@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FinalProject2
 {
-	public class UserRepository: IUserRepository
-	{
+    public class UserRepository : IUserRepository
+    {
         private readonly IDbConnection _conn;
 
         public UserRepository(IDbConnection conn)
-		{
+        {
             _conn = conn;
         }
 
@@ -27,7 +27,6 @@ namespace FinalProject2
                 Text = $"{e.EventID} {e.EventName}"
             });
             return user;
-            // user.EventsData = eventList;
         }
 
         public void DeleteUser(User user)
@@ -46,7 +45,7 @@ namespace FinalProject2
         }
 
         public User GetUser(int id)
-        { 
+        {
             return _conn.QuerySingle<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName\nFROM Events INNER JOIN Users ON Users.EventID = Events.EventID WHERE USERID = @id", new { id = id });
         }
 
