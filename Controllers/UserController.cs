@@ -78,76 +78,41 @@ namespace FinalProject2.Controllers
 
         public IActionResult SortUsers(string column, string sortOrder)
         {
-            // Assuming you have a repository method to retrieve all users
+            //Assuming you have a repository method to retrieve all users
             var allUsers = repo.GetAllUsers();
 
             // Implement sorting logic based on the specified column and sortOrder
             IEnumerable<User> sortedUsers;
 
-            //switch (column)
-            //{
-            //    case "EventID":
-
-            //        while ("EventID" != null)
-            //        {
-            //            sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
-            //        }
-  
-            //    default:
-            //        sortedUsers = allUsers;
-            //        break;
-
-            //  //if (sortOrder == "desc")
-            //    //{
-            //    //    sortedUsers = allUsers.OrderByDescending(u => u.EventID);
-            //    //    return PartialView("_UserTablePartial", sortedUsers);
-            //    //    //return View(sortedUsers);
-            //    //}
-
-            //    //else
-            //    //{
-            //    //    sortedUsers = allUsers.OrderBy(u => u.EventID);
-            //    //    return PartialView("_UserTablePartial", sortedUsers);
-            //    //    //return View(sortedUsers);
-
-
-            //        //return PartialView("_UserTablePartial", sortedUsers);
-            //        ////return View(sortedUsers);
-            //}
-
-            //return PartialView("_UserTablePartial", sortedUsers);
-            //return View(sortedUsers);
-
             switch (column)
             {
                 case "EventID":
-
-                    sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
-                    //sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
-                    //return View(sortedUsers);
+                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
                     break;
-
                 // Add additional cases for other columns if needed
                 default:
                     sortedUsers = allUsers;
                     break;
-                    //return View(sortedUsers);
+
+                    //case "EventID":
+
+                    //    while ("EventID" != null)
+                    //    {
+                    //        sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+                    //    }
+
+                    //default:
+                    //    sortedUsers = allUsers;
+                    //    break;
             }
 
-            //Return a partial view with the sorted users
+            // Return a partial view with the sorted users
             return PartialView("_UserTablePartial", sortedUsers);
 
-
         }
-
-        public IActionResult SortUsersDesc(string column, string sortOrder)
-        {
-            //// Assuming you have a repository method to retrieve all users
-            //var allUsers = repo.GetAllUsers();
-
-            //// Implement sorting logic based on the specified column and sortOrder
-            //IEnumerable<User> sortedUsers;
-
+    }
+}
             //switch (column)
             //{
             //    case "EventID":
@@ -176,41 +141,71 @@ namespace FinalProject2.Controllers
             //        //return View(sortedUsers);
             //}
 
-            //Assuming you have a repository method to retrieve all users
-            var allUsers = repo.GetAllUsers();
 
-            // Implement sorting logic based on the specified column and sortOrder
-            IEnumerable<User> sortedUsers;
 
-            switch (column)
-            {
-                //case "EventID":
+                //public IActionResult SortUsersDesc(string column, string sortOrder)
+        //{
+        //    // Assuming you have a repository method to retrieve all users
+        //    var allUsers = repo.GetAllUsers();
 
-                //    while ("EventID" != null)
-                //    {
-                //        sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
-                //    }
+        //    // Implement sorting logic based on the specified column and sortOrder
+        //    IEnumerable<User> sortedUsers;
 
-                //default:
-                //    sortedUsers = allUsers;
-                //    break;
 
-                case "EventID":
-                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
-                    //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
-                    break;
-                // Add additional cases for other columns if needed
-                default:
-                    sortedUsers = allUsers;
-                    break;
-            }
 
-            // Return a partial view with the sorted users
-            return PartialView("_UserTablePartial", sortedUsers);
+        //    switch (column)
+        //    {
+        //        case "EventID":
 
-        
+        //            sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
+        //            //sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
+        //            //return View(sortedUsers);
+        //            break;
 
-    }
-}
-}
+        //        // Add additional cases for other columns if needed
+        //        default:
+        //            sortedUsers = allUsers;
+        //            break;
+        //            //return View(sortedUsers);
+        //    }
 
+        //    //Return a partial view with the sorted users
+        //    return PartialView("_UserTablePartial", sortedUsers);
+
+        //    //switch (column)
+        //    //{
+        //    //    case "EventID":
+
+        //    //        while ("EventID" != null)
+        //    //        {
+        //    //            sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
+        //    //        }
+  
+        //    //    default:
+        //    //        sortedUsers = allUsers;
+        //    //        break;
+
+        //    //  //if (sortOrder == "desc")
+        //    //    //{
+        //    //    //    sortedUsers = allUsers.OrderByDescending(u => u.EventID);
+        //    //    //    return PartialView("_UserTablePartial", sortedUsers);
+        //    //    //    //return View(sortedUsers);
+        //    //    //}
+
+        //    //    //else
+        //    //    //{
+        //    //    //    sortedUsers = allUsers.OrderBy(u => u.EventID);
+        //    //    //    return PartialView("_UserTablePartial", sortedUsers);
+        //    //    //    //return View(sortedUsers);
+
+
+        //    //        //return PartialView("_UserTablePartial", sortedUsers);
+        //    //        ////return View(sortedUsers);
+        //    //}
+
+        //    //return PartialView("_UserTablePartial", sortedUsers);
+        //    //return View(sortedUsers);
+
+        //}
+
+    

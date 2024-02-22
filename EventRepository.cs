@@ -18,6 +18,7 @@ namespace FinalProject2
         public void DeleteEventData(EventData instance)
         {
             _conn.Execute("DELETE FROM Events WHERE EventID = @id;", new { id = instance.EventID });
+            _conn.Execute("DELETE FROM Users WHERE EventID = @id;", new { id = instance.EventID });
         }
 
         public IEnumerable<EventData> GetAllEventsData()

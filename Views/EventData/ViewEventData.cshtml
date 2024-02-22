@@ -56,8 +56,8 @@
 
         @using (Html.BeginForm("DeleteEventData", "EventData", "Post"))
         {
-            <input type="hidden" asp-for="EventData.EventID" value="@Model.EventData.EventID" />
-            <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Event" />
+            <input type="hidden" asp-for="EventID" value="@Model.EventData.EventID" />
+            <input type="submit" onclick="return confirm('Are you sure? This will delete this event and all users attached. Update the Event for each user attached to this Event before continuing if you would like to keep the attached users.')" value="Delete this Event" />
         }
     </div>
 

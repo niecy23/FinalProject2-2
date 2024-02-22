@@ -150,7 +150,6 @@
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/MySql.Data.dll
-/Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/BouncyCastle.Crypto.dll
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/System.Drawing.Common.dll
 /Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
@@ -193,3 +192,7 @@
 /Users/macuser/Chanise/Repos/FinalProject2/obj/Debug/net6.0/FinalProject2.pdb
 /Users/macuser/Chanise/Repos/FinalProject2/obj/Debug/net6.0/FinalProject2.genruntimeconfig.cache
 /Users/macuser/Chanise/Repos/FinalProject2/obj/Debug/net6.0/ref/FinalProject2.dll
+/Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/BouncyCastle.Cryptography.dll
+/Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/System.Diagnostics.DiagnosticSource.dll
+/Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/System.IO.Pipelines.dll
+/Users/macuser/Chanise/Repos/FinalProject2/bin/Debug/net6.0/ZstdSharp.dll
