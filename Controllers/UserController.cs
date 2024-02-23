@@ -95,7 +95,16 @@ namespace FinalProject2.Controllers
                     sortedUsers = allUsers;
                     break;
 
-                    //case "EventID":
+            }
+
+            // Return a partial view with the sorted users
+            return PartialView("_UserTablePartial", sortedUsers);
+
+        }
+    }
+}
+
+//case "EventID":
 
                     //    while ("EventID" != null)
                     //    {
@@ -105,14 +114,6 @@ namespace FinalProject2.Controllers
                     //default:
                     //    sortedUsers = allUsers;
                     //    break;
-            }
-
-            // Return a partial view with the sorted users
-            return PartialView("_UserTablePartial", sortedUsers);
-
-        }
-    }
-}
             //switch (column)
             //{
             //    case "EventID":

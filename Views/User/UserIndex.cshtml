@@ -15,7 +15,6 @@
         <th>Phone Number</th>
         @*<th><a href="javascript:void(0);" onclick="sortTable('EventID')">Event ID</a></th>*@
         <th><a href="javascript:void(0);" id="eventIDHeader">Event ID</a></th>
-
         <th>Event Name</th>
     </tr>
 
@@ -38,8 +37,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>
-    // Define a global variable to store the current sorting order
+@*<script>// Define a global variable to store the current sorting order
     var sortOrder = 'desc';
 
     // Function to toggle sorting order and update table
@@ -69,8 +67,7 @@
     $('#eventIDHeader').on('click', function () {
         // Call sortTable function with 'EventID' column
         sortTable('EventID');
-    });
-</script>
+    });</script>*@
 
 @*<script>function sortTable(columnName) {
         // Implement your sorting logic here
@@ -91,3 +88,32 @@
         });
     }</script>*@
 
+
+<script>// Function to toggle sorting order and update table
+    function sortTable(columnName) {
+        // Retrieve the current sorting order from the header text
+        var currentOrder = $('#eventIDHeader').text().includes('▼') ? 'desc' : 'asc';
+
+        // Make AJAX request to toggle sorting order
+        $.ajax({
+            url: '/User/SortUsers',
+            data: { column: columnName, sortOrder: currentOrder },
+            type: 'GET',
+            success: function (data) {
+                // Replace table content with sorted data
+                $('.table tbody').html(data);
+
+                // Update EventID header to indicate sorting order
+                $('#eventIDHeader').text('Event ID ' + (currentOrder === 'asc' ? '▼' : '▲'));
+            },
+            error: function () {
+                alert('Error occurred while sorting.');
+            }
+        });
+    }
+
+    // Continuous sorting loop when EventID hyperlink is clicked
+    $(document).on('click', '#eventIDHeader', function () {
+        // Call sortTable function with 'EventID' column
+        sortTable('EventID');
+    });</script>
