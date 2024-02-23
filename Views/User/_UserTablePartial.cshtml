@@ -42,57 +42,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-@*<script>// Define a global variable to store the current sorting order
-    var sortOrder = 'asc';
-
-    // Function to toggle sorting order and update table
-    function sortTable(columnName) {
-        // Toggle sorting order
-        sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
-
-        // Make AJAX request to retrieve sorted data
-        $.ajax({
-            url: '/User/SortUsers',
-            data: { column: columnName, sortOrder: sortOrder },
-            type: 'GET',
-            success: function (data) {
-                // Replace table content with sorted data
-                $('.table tbody').html(data);
-
-                // Update EventID header to indicate sorting order
-                $('#eventIDHeader').text('Event ID ' + (sortOrder === 'desc' ? '▼' : '▲'));
-            },
-            error: function () {
-                alert('Error occurred while sorting.');
-            }
-        });
-    }
-
-    // Continuous sorting loop when EventID hyperlink is clicked
-    $('#eventIDHeader').on('click', function () {
-        // Call sortTable function with 'EventID' column
-        sortTable('EventID');
-    });</script>*@
-
-@*<script>function sortTable(columnName) {
-        // Implement your sorting logic here
-        // You can use AJAX to retrieve sorted data from the server and update the table
-        // For simplicity, let's assume the server returns a sorted list named 'sortedUsers'
-
-        $.ajax({
-            url: '/User/SortUsersDesc',
-            data: { column: columnName },
-            type: 'GET',
-            success: function (data) {
-                // Replace the table content with the sorted data
-                $('.table tbody').html(data);
-            },
-            error: function () {
-                alert('Error occurred while sorting.');
-            }
-        });
-    }</script>*@
-
 <script>// Function to toggle sorting order and update table
     function sortTable(columnName) {
         // Retrieve the current sorting order from the header text
