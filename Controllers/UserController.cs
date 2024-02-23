@@ -86,10 +86,21 @@ namespace FinalProject2.Controllers
 
             switch (column)
             {
+                case "UserID":
+                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.UserID) : allUsers.OrderByDescending(u => u.UserID);
+                    //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.UserID) : allUsers.OrderBy(u => u.UserID);
+                    break;
+
+                case "LastName":
+                    sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.LastName) : allUsers.OrderByDescending(u => u.LastName);
+                    //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.LastName) : allUsers.OrderBy(u => u.LastName);
+                    break;
+
                 case "EventID":
                     sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
                     //sortedUsers = sortOrder == "desc" ? allUsers.OrderByDescending(u => u.EventID) : allUsers.OrderBy(u => u.EventID);
                     break;
+
                 // Add additional cases for other columns if needed
                 default:
                     sortedUsers = allUsers;

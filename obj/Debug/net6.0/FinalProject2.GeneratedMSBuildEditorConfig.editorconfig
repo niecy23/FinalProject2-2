@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnREYXRhL1ZpZXdFdmVudERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/macuser/Chanise/Repos/FinalProject2/Views/EventData/_EventTablePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnREYXRhL19FdmVudFRhYmxlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/macuser/Chanise/Repos/FinalProject2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/macuser/Chanise/Repos/FinalProject2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macuser/Chanise/Repos/FinalProject2/Views/Shared/_HomeLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Ib21lTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/macuser/Chanise/Repos/FinalProject2/Views/Shared/_ValidationScriptsPartial.cshtml]

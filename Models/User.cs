@@ -10,13 +10,13 @@ namespace FinalProject2.Models
         }
 
         public int UserID { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public string? EmailAddress { get; set; }
-        public string? PhoneNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public string PhoneNumber { get; set; }
         public int EventID { get; set; }
         public EventData Event { get; set; }
-        public string? EventName { get; set; }
+        public string EventName { get; set; }
         public IEnumerable<SelectListItem> EventsData { get; set; }
         public int SelectedEventID { get; set; }
     }

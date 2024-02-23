@@ -1,14 +1,14 @@
-﻿@{
-    Layout = "_Layout";
-}
+﻿@model IEnumerable<EventData>
 
-@model IEnumerable<EventData>
+<style>
+    .table {
+        border-collapse: collapse;
+    }
 
-<h2>Events</h2>
-
-<div style="display: block">
-    <a href="/EventData/InsertEventData/">Create a New Event</a>
-</div>
+        .table th, .table td {
+            padding: 8px; /* Add padding for better readability */
+        }
+</style>
 
 <table class="table">
     <tr>
@@ -61,7 +61,7 @@
 
     // Continuous sorting loop when EventID hyperlink is clicked
     $(document).on('click', '#eventIDHeader', function () {
-        // Call sortTableEventID function with 'EventID' column
+        // Call sortTable function with 'EventID' column
         sortTableEventID('EventID');
     });</script>
 
@@ -98,7 +98,7 @@
     function sortTableDateAndTime(columnName) {
         // Retrieve the current sorting order from the header text
         var currentOrder = $('#dateAndTimeHeader').text().includes('▼') ? 'desc' : 'asc';
-
+            //('▲') ? 'asc' : 'desc';
         // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/EventData/SortEvents',
@@ -110,6 +110,8 @@
 
                 // Update Date And Time header to indicate sorting order
                 $('#dateAndTimeHeader').text('Date And Time ' + (currentOrder === 'asc' ? '▼' : '▲'));
+                    //'desc' ? '▲' : '▼'));
+                    //
             },
             error: function () {
                 alert('Error occurred while sorting.');
@@ -122,3 +124,5 @@
         // Call sortTableDateAndTime function with 'DateAndTime' column
         sortTableDateAndTime('DateAndTime');
     });</script>
+
+

@@ -1,7 +1,4 @@
 /* _content/FinalProject2/Views/Shared/_Layout.cshtml.rz.scp.css */
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
 a.navbar-brand[b-e1p5g0a0wm] {
   white-space: normal;
   text-align: center;
@@ -13,9 +10,11 @@ a[b-e1p5g0a0wm] {
 }
 
 .btn-primary[b-e1p5g0a0wm] {
-  color: red;
-  background-color: green;
-  border-color: black;
+    color: red;
+    background-color: green;
+    border-color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 30%;
 }
 
 .nav-pills .nav-link.active[b-e1p5g0a0wm], .nav-pills .show > .nav-link[b-e1p5g0a0wm] {
