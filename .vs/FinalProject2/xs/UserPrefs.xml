@@ -1,26 +1,22 @@
 ﻿<Properties StartupConfiguration="{119E5F55-B623-4490-8622-7FD0A8B0FFF4}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.FinalProject2 PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/User/UserIndex.cshtml">
+  <MonoDevelop.Ide.ItemProperties.FinalProject2 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/EventData/ViewEventData.cshtml">
     <Files>
-      <File FileName="Models/User.cs" Line="16" Column="17" NotebookId="1" />
-      <File FileName="Views/User/UserIndex.cshtml" Line="46" Column="37" NotebookId="1" />
-      <File FileName="Controllers/UserController.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Views/User/_UserTablePartial.cshtml" Line="1" Column="1" NotebookId="2" />
+      <File FileName="Views/User/_UserTablePartial.cshtml" Line="70" Column="17" NotebookId="1" IsPinned="True" />
+      <File FileName="Models/EventData.cs" Line="28" Column="1" NotebookId="1" IsPinned="True" />
+      <File FileName="Views/EventData/ViewEventData.cshtml" Line="56" Column="1" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="2481" Y="-219" Width="787" Height="962">
+      <FloatingWindow WindowId="1" X="1927" Y="-156" Width="787" Height="887">
         <Files>
-          <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" />
+          <File FileName="Views/Home/Index.cshtml" Line="6" Column="37" />
+          <File FileName="Views/Shared/_Layout.cshtml.css" Line="23" Column="2" />
+          <File FileName="Views/Shared/_HomeLayout.cshtml" Line="29" Column="8" />
+          <File FileName="wwwroot/css/site.css" Line="37" Column="5" />
           <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
-          <File FileName="Views/Shared/_Layout.cshtml.css" Line="1" Column="1" />
-          <File FileName="wwwroot/css/site.css" Line="1" Column="1" />
-          <File FileName="Views/Home/Privacy.cshtml" Line="1" Column="1" />
         </Files>
       </FloatingWindow>
     </FloatingWindows>
@@ -29,15 +25,16 @@
         <State name="__root__">
           <Node name="FinalProject2">
             <Node name="FinalProject2">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Images" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Views">
+              <Node name="Views" expanded="True">
+                <Node name="EventData" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True">
                   <Node name="_Layout.cshtml" expanded="True" />
                 </Node>
-                <Node name="User">
-                  <Node name="UserIndex.cshtml" selected="True" />
-                </Node>
+                <Node name="User" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
@@ -49,4 +46,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
