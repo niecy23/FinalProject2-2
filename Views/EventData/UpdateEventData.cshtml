@@ -1,22 +1,76 @@
-﻿@model EventData
+﻿@*@model EventData
 
-<h2>Update @Model.EventName</h2>
+    <h2>Update @Model.EventName</h2>
 
-@using (Html.BeginForm("UpdateEventToDatabase", "EventData", "Post"))
+    @using (Html.BeginForm("UpdateEventToDatabase", "EventData", "Post"))
+    {
+        <input asp-for="EventID" type="hidden" value="@Model.EventID" />*@
+
+@*@model FinalProject2.Models.EventDetailsViewModel
+
+    <h2>Update @Model.EventData.EventName</h2>
+
+    @using (Html.BeginForm("UpdateEventToDatabase", "EventData", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.EventData.EventID)
+
+        <label asp-for="EventName" class="control-label">Event Name</label>
+        <input asp-for="EventName" class="form-control" />
+
+        <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+        <input asp-for="DateAndTime" class="form-control" />
+
+        <label asp-for="Location" class="control-label">Location</label>
+        <input asp-for="Location" class="form-control" />
+
+        <label asp-for="Description" class="control-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+
+        <input type="submit" value="Update Event" class="btn btn-secondary" />
+    }*@
+
+@*@model FinalProject2.Models.EventData
+
+    <h2>Update @Model.EventName</h2>
+
+    @using (Html.BeginForm("UpdateEventToDatabase", "EventData", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.EventID)
+
+        <label asp-for="EventName" class="control-label">Event Name</label>
+        <input asp-for="EventName" class="form-control" />
+
+        <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+        <input asp-for="DateAndTime" class="form-control" />
+
+        <label asp-for="Location" class="control-label">Location</label>
+        <input asp-for="Location" class="form-control" />
+
+        <label asp-for="Description" class="control-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+
+        <input type="submit" value="Update Event" class="btn btn-secondary" />
+    }*@
+
+@model FinalProject2.Models.EventDetailsViewModel
+
+<h2>Update @Model.EventData.EventName</h2>
+
+@using (Html.BeginForm("UpdateEventToDatabase", "EventData", FormMethod.Post))
 {
-    <input asp-for="EventID" type="hidden" value="@Model.EventID" />
+    @Html.HiddenFor(model => model.EventData.EventID)
 
-    <label asp-for="EventName" class="control-label">Event Name</label>
-    <input asp-for="EventName" class="form-control" />
+    <label asp-for="EventData.EventName" class="control-label">Event Name</label>
+    <input asp-for="EventData.EventName" class="form-control" />
 
-    <label asp-for="DateAndTime" class="control-label">Date and Time</label>
-    <input asp-for="DateAndTime" class="form-control" />
+    <label asp-for="EventData.DateAndTime" class="control-label">Date and Time</label>
+    <input asp-for="EventData.DateAndTime" class="form-control" />
 
-    <label asp-for="Location" class="control-label">Location</label>
-    <input asp-for="Location" class="form-control" />
+    <label asp-for="EventData.Location" class="control-label">Location</label>
+    <input asp-for="EventData.Location" class="form-control" />
 
-    <label asp-for="Description" class="control-label">Description</label>
-    <input asp-for="Description" class="form-control" />
+    <label asp-for="EventData.Description" class="control-label">Description</label>
+    <input asp-for="EventData.Description" class="form-control" />
 
     <input type="submit" value="Update Event" class="btn btn-secondary" />
 }

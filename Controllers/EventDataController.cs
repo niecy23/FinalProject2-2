@@ -31,20 +31,30 @@ namespace FinalProject2.Controllers
 
         public IActionResult UpdateEventData(int id)
         {
-            EventData instance = repo.GetEventData(id);
-            if (instance == null)
+            EventData eventData = repo.GetEventData(id);
+            if (eventData == null)
             {
                 return View("EventNotFound");
             }
-            return View(instance);
+
+            var viewModel = new EventDetailsViewModel
+            {
+                EventData = eventData
+            };
+
+            //return View("UpdateEventData", viewModel);
+            return View(viewModel); // Return the correct view with the correct model
         }
 
-        public IActionResult UpdateEventToDatabase(EventData instance)
+        [HttpPost] // Add this attribute to handle POST requests
+        public IActionResult UpdateEventToDatabase(EventDetailsViewModel viewModel)
         {
-            repo.UpdateEventData(instance);
-
-            return RedirectToAction("ViewEventData", new { id = instance.EventID });
+            repo.UpdateEventData(viewModel.EventData);
+            return RedirectToAction("EventDetails", new { id = viewModel.EventData.EventID });
+            //return RedirectToAction("ViewEventData", new { id = viewModel.EventData.EventID });
+            //return View("UpdateEventData", viewModel); // Return the correct view with the correct model
         }
+
 
         public IActionResult InsertEventData()
         {
@@ -128,3 +138,43 @@ namespace FinalProject2.Controllers
         }
     }
 }
+        //public IActionResult UpdateEventData(int id)
+        //{
+        //    EventData instance = repo.GetEventData(id);
+        //    if (instance == null)
+        //    {
+        //        return View("EventNotFound");
+        //    }
+
+        //    var viewModel = new EventDetailsViewModel
+        //    {
+        //        EventData = instance
+        //    };
+
+        //    return View(viewModel);
+        //}
+
+
+        //public IActionResult UpdateEventToDatabase(EventData instance)
+        //{
+        //    repo.UpdateEventData(instance);
+
+        //    return RedirectToAction("ViewEventData", new { id = instance.EventID });
+        //}
+
+        //public IActionResult UpdateEventData(int id)
+        //{
+        //    EventData instance = repo.GetEventData(id);
+        //    if (instance == null)
+        //    {
+        //        return View("EventNotFound");
+        //    }
+        //    return View(instance);
+        //}
+
+        //public IActionResult UpdateEventToDatabase(EventDetailsViewModel viewModel)
+        //{
+        //    repo.UpdateEventData(viewModel.EventData);
+
+        //    return RedirectToAction("ViewEventData", new { id = viewModel.EventData.EventID });
+        //}
