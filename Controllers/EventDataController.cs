@@ -42,8 +42,7 @@ namespace FinalProject2.Controllers
                 EventData = eventData
             };
 
-            //return View("UpdateEventData", viewModel);
-            return View(viewModel); // Return the correct view with the correct model
+            return View(viewModel);
         }
 
         [HttpPost] // Add this attribute to handle POST requests
@@ -51,8 +50,6 @@ namespace FinalProject2.Controllers
         {
             repo.UpdateEventData(viewModel.EventData);
             return RedirectToAction("EventDetails", new { id = viewModel.EventData.EventID });
-            //return RedirectToAction("ViewEventData", new { id = viewModel.EventData.EventID });
-            //return View("UpdateEventData", viewModel); // Return the correct view with the correct model
         }
 
 
@@ -112,24 +109,21 @@ namespace FinalProject2.Controllers
             {
                 case "EventID":
                     sortedEvents = sortOrder == "asc" ? allEvents.OrderBy(e => e.EventID) : allEvents.OrderByDescending(e => e.EventID);
-                    //sortedEvents = sortOrder == "desc" ? allEvents.OrderByDescending(e => e.EventID) : allEvents.OrderBy(e => e.EventID);
                     break;
 
 
                 case "EventName":
                     sortedEvents = sortOrder == "asc" ? allEvents.OrderBy(e => e.EventName) : allEvents.OrderByDescending(e => e.EventName);
-                    //sortedEvents = sortOrder == "desc" ? allEvents.OrderByDescending(e => e.EventName) : allEvents.OrderBy(e => e.EventName);
                     break;
 
                 case "DateAndTime":
                     sortedEvents = sortOrder == "asc" ? allEvents.OrderBy(e => e.DateAndTime) : allEvents.OrderByDescending(e => e.DateAndTime);
-                    //sortedEvents = sortOrder == "desc" ? allEvents.OrderByDescending(e => e.DateAndTime) : allEvents.OrderBy(e => e.DateAndTime);
-                    break;
+                   break;
+
                 // Add additional cases for other columns if needed
                 default:
                     sortedEvents = allEvents;
                     break;
-
             }
 
             // Return a partial view with the sorted events
@@ -138,43 +132,3 @@ namespace FinalProject2.Controllers
         }
     }
 }
-        //public IActionResult UpdateEventData(int id)
-        //{
-        //    EventData instance = repo.GetEventData(id);
-        //    if (instance == null)
-        //    {
-        //        return View("EventNotFound");
-        //    }
-
-        //    var viewModel = new EventDetailsViewModel
-        //    {
-        //        EventData = instance
-        //    };
-
-        //    return View(viewModel);
-        //}
-
-
-        //public IActionResult UpdateEventToDatabase(EventData instance)
-        //{
-        //    repo.UpdateEventData(instance);
-
-        //    return RedirectToAction("ViewEventData", new { id = instance.EventID });
-        //}
-
-        //public IActionResult UpdateEventData(int id)
-        //{
-        //    EventData instance = repo.GetEventData(id);
-        //    if (instance == null)
-        //    {
-        //        return View("EventNotFound");
-        //    }
-        //    return View(instance);
-        //}
-
-        //public IActionResult UpdateEventToDatabase(EventDetailsViewModel viewModel)
-        //{
-        //    repo.UpdateEventData(viewModel.EventData);
-
-        //    return RedirectToAction("ViewEventData", new { id = viewModel.EventData.EventID });
-        //}

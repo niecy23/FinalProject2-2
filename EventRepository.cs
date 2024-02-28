@@ -50,7 +50,6 @@ namespace FinalProject2
 
         public IEnumerable<EventData> GetUsersByEvent(int id)
         {
-            // Ensure that your SQL query uses the @id parameter
             return _conn.Query<EventData>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id", new { id });
         }
 
@@ -66,8 +65,3 @@ namespace FinalProject2
         }
     }
 }
-
-        //public IEnumerable<EventData> GetUsersByEvent(int id)
-        //{
-        //    return _conn.Query<EventData>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id;");
-        //}
