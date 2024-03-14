@@ -20,5 +20,15 @@
     <Folder Include="bin\Debug\net6.0\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\EventData\" />
+    <Folder Include="wwwroot\css\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Images\CSS Black Gradient Background.jpeg" />
+    <Content Remove="wwwroot\css\Images\Wavy Black Background.jpeg" />
+    <Content Remove="wwwroot\css\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\Images\CSS Black Gradient Background.jpeg" />
+    <None Include="wwwroot\css\Images\Wavy Black Background.jpeg" />
   </ItemGroup>
 </Project>

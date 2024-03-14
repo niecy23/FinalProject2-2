@@ -2,7 +2,9 @@
 
 <h2>Update @Model.UserID</h2>
 
-@using (Html.BeginForm("UpdateUserToDatabase", "User", "Post"))
+@*@using (Html.BeginForm("UpdateUserToDatabase", "User", "Post"))*@
+@using (Html.BeginForm("UpdateUserToDatabase", "User", FormMethod.Post))
+
 {
     <input asp-for="UserID" type="hidden" value="@Model.UserID" />
 
@@ -23,12 +25,13 @@
     <div class="form-group">
         <label asp-for="EventID">Select an Event</label>
         <select asp-for="EventID" class="form-control" asp-items="Model.EventsData">
-            <option value="">-- Select Event --</option>
+            @*<option value="">-- Select Event --</option>*@
+            <option value="" disabled selected>-- Select Event --</option>
         </select>
         <span asp-validation-for="EventID" class="text-danger"></span>
     </div>
 
-    <input type="submit" value="Update User" class="btn btn-primary" />
+    <input type="submit" value="Update User" class="btn btn-secondary" />
 }
 
 @section scripts {

@@ -52,7 +52,7 @@ body {
     text-align: center; /* Center align the content */
     padding-top: 100px; /* Adjust spacing from top as needed */
     padding-bottom: 100px; /* Adjust spacing from bottom as needed */
-    background-image: url('~/Images/Wavy Black Background.jpeg'); /* Path to your background image */
+    background-image: url('img/CSS Black Gradient Background.jpeg'); /* Path to your background image */
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
 }
@@ -67,4 +67,6 @@ body {
         font-family: "fantasy", Papyrus; /* Change font family */
     }
 
-
+a {
+    color: greenyellow;
+}

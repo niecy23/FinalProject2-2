@@ -5,7 +5,7 @@ a.navbar-brand[b-e1p5g0a0wm] {
 }
 
 a[b-e1p5g0a0wm] {
-  color: #0077cc;
+  color: greenyellow;
 }
 
 .btn-primary[b-e1p5g0a0wm] {
@@ -32,7 +32,7 @@ a[b-e1p5g0a0wm] {
         transform: translateY(-50%); /* Move the pseudo-element up by half of its height */
     }
 
-}
+
 
 .nav-pills .nav-link.active[b-e1p5g0a0wm], .nav-pills .show > .nav-link[b-e1p5g0a0wm] {
   color: blue;
@@ -63,4 +63,3 @@ button.accept-policy[b-e1p5g0a0wm] {
   white-space: nowrap;
   line-height: 60px;
 }
-

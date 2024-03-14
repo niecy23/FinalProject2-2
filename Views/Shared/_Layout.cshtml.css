@@ -5,7 +5,7 @@
 }
 
 a {
-  color: #0077cc;
+  color: greenyellow;
 }
 
 .btn-primary {
@@ -32,7 +32,7 @@ a {
         transform: translateY(-50%); /* Move the pseudo-element up by half of its height */
     }
 
-}
+
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: blue;
@@ -63,4 +63,3 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
-
