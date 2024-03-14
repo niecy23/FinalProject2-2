@@ -43,7 +43,6 @@ namespace FinalProject2.Controllers
                 return View("UserNotFound");
             }
 
-            // Populate the EventsData property
             var allEvents = repo.GetAllEventsData().ToList();
             user.EventsData = allEvents.Select(e => new SelectListItem
             {
@@ -82,10 +81,8 @@ namespace FinalProject2.Controllers
 
         public IActionResult SortUsers(string column, string sortOrder)
         {
-            //Assuming you have a repository method to retrieve all users
             var allUsers = repo.GetAllUsers();
 
-            // Implement sorting logic based on the specified column and sortOrder
             IEnumerable<User> sortedUsers;
 
             switch (column)
@@ -102,129 +99,13 @@ namespace FinalProject2.Controllers
                     sortedUsers = sortOrder == "asc" ? allUsers.OrderBy(u => u.EventID) : allUsers.OrderByDescending(u => u.EventID);
                     break;
 
-                // Add additional cases for other columns if needed
                 default:
                     sortedUsers = allUsers;
                     break;
-
             }
 
-            // Return a partial view with the sorted users
             return PartialView("_UserTablePartial", sortedUsers);
 
         }
     }
 }
-//public IActionResult InsertUser()
-//{
-//    var user = repo.AssignEvent();
-//    return View(user);
-//}
-//public IActionResult ViewUser(int id)
-//{
-//    var user = repo.GetUser(id);
-//    return View(user);
-//}
-//public IActionResult InsertUserToDatabase(User userToInsert)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        repo.InsertUser(userToInsert);
-//        return RedirectToAction("ViewUser");
-//    }
-
-//    // Populate EventsData to redisplay the form with valid event options
-//    userToInsert.EventsData = repo.GetAllEventsData().Select(e => new SelectListItem
-//    {
-//        Value = e.EventID.ToString(),
-//        Text = $"{e.EventID} {e.EventName}"
-//    });
-
-//    return View("ViewUser", userToInsert);
-//}
-
-//public IActionResult InsertUserToDatabase(User userToInsert)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        repo.InsertUser(userToInsert);
-//        return RedirectToAction("ViewUser", new { id = userToInsert.UserID });
-//    }
-
-//    // Populate EventsData to redisplay the form with valid event options
-//    userToInsert.EventsData = repo.GetAllEventsData().Select(e => new SelectListItem
-//    {
-//        Value = e.EventID.ToString(),
-//        Text = $"{e.EventID} {e.EventName}"
-//    });
-
-//    //return View("InsertUser", userToInsert);
-//    return RedirectToAction("ViewUser", new { id = userToInsert.UserID });
-//}
-
-
-//public IActionResult UpdateUserToDatabase(User user)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        repo.UpdateUser(user);
-//        return RedirectToAction("ViewUser", new { id = user.UserID });
-//    }
-
-//    // Populate EventsData to redisplay the form with valid event options
-//    user.EventsData = repo.GetAllEventsData().Select(e => new SelectListItem
-//    {
-//        Value = e.EventID.ToString(),
-//        Text = $"{e.EventID} {e.EventName}"
-//    });
-
-//    return View("ViewUser", user);
-//}
-
-//public IActionResult UpdateUserToDatabase(User user)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        repo.UpdateUser(user);
-//        return RedirectToAction("ViewUser", new { id = user.UserID });
-//    }
-
-//    // Populate EventsData to redisplay the form with valid event options
-//    user.EventsData = repo.GetAllEventsData().Select(e => new SelectListItem
-//    {
-//        Value = e.EventID.ToString(),
-//        Text = $"{e.EventID} {e.EventName}"
-//    });
-
-//    //return View("UpdateUser", user);
-//    return RedirectToAction("ViewUser", new { id = user.UserID });
-
-//}
-
-// UserController.cs
-//public IActionResult UpdateUserToDatabase(User user)
-//{
-//    // Ensure that the ModelState is valid before proceeding
-//    if (ModelState.IsValid)
-//    {
-//        // Retrieve the selected EventID from the form data and assign it to the User model
-//        var selectedEventId = Request.Form["EventID"];
-//        user.EventID = int.Parse(selectedEventId);
-
-//        // Update the user record in the repository
-//        repo.UpdateUser(user);
-
-//        // Redirect to the ViewUser action with the updated user ID
-//        return RedirectToAction("ViewUser", new { id = user.UserID });
-//    }
-
-//    // If ModelState is not valid, populate EventsData to redisplay the form with valid event options
-//    user.EventsData = repo.GetAllEventsData().Select(e => new SelectListItem
-//    {
-//        Value = e.EventID.ToString(),
-//        Text = $"{e.EventID} {e.EventName}"
-//    });
-
-//    // Return the UpdateUser view with the updated User model
-//    return View("UpdateUser", user);
-//}

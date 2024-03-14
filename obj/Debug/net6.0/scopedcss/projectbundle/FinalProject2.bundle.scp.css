@@ -1,12 +1,12 @@
 /* _content/FinalProject2/Views/Shared/_Layout.cshtml.rz.scp.css */
 a.navbar-brand[b-e1p5g0a0wm] {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 a[b-e1p5g0a0wm] {
-  color: greenyellow;
+    color: greenyellow;
 }
 
 .btn-primary[b-e1p5g0a0wm] {
@@ -15,52 +15,52 @@ a[b-e1p5g0a0wm] {
     border-color: black;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     border-radius: 30%;
-    padding: 12px 24px; /* Increase padding to make the buttons bigger */
-    font-size: 50px; /* Increase font size to make the buttons bigger */
+    padding: 12px 24px;
+    font-size: 50px;
     font-family: "fantasy", Papyrus;
-    position: relative; /* Required for absolute positioning of pseudo-element */
+    position: relative;
 }
 
-    /* Hover effect */
     .btn-primary:hover[b-e1p5g0a0wm]::after {
-        content: ""; /* Add content to pseudo-element */
-        position: absolute; /* Position the pseudo-element absolutely */
-        top: 50%; /* Position from the top */
-        right: -20px; /* Position from the right (adjust as needed) */
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -20px;
         border: solid transparent;
-        border-width: 10px; /* Size of the arrow */
-        border-right-color: #4CAF50; /* Color of the arrow (matches hover color) */
-        transform: translateY(-50%); /* Move the pseudo-element up by half of its height */
+        border-width: 10px;
+        border-right-color: #4CAF50;
+        transform: translateY(-50%);
     }
 
 
 
 .nav-pills .nav-link.active[b-e1p5g0a0wm], .nav-pills .show > .nav-link[b-e1p5g0a0wm] {
-  color: blue;
-  background-color: yellow;
-  border-color: white;
+    color: blue;
+    background-color: yellow;
+    border-color: white;
 }
 
 .border-top[b-e1p5g0a0wm] {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom[b-e1p5g0a0wm] {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow[b-e1p5g0a0wm] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy[b-e1p5g0a0wm] {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 .footer[b-e1p5g0a0wm] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }

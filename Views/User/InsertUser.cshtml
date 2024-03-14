@@ -37,16 +37,13 @@
             var actualPhoneNumberInput = document.getElementById("ActualPhoneNumber");
 
             phoneNumberInput.addEventListener("input", function () {
-                // Remove non-numeric characters
+
                 var numericValue = this.value.replace(/\D/g, "");
 
-                // Format the phone number
                 var formattedValue = formatPhoneNumber(numericValue);
 
-                // Update the visible input field
                 this.value = formattedValue;
 
-                // Update the hidden input field with the actual phone number value
                 actualPhoneNumberInput.value = numericValue;
             });
 

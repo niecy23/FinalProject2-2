@@ -41,21 +41,16 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTableUserID(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTableUserID(columnName) {
+
         var currentOrder = $('#userIDHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/User/SortUsers',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update UserID header to indicate sorting order
                 $('#userIDHeader').text('User ID ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -64,27 +59,20 @@
         });
     }
 
-    // Continuous sorting loop when User ID hyperlink is clicked
     $(document).on('click', '#userIDHeader', function () {
-        // Call sortTableUserID function with 'UserID' column
         sortTableUserID('UserID');
     });</script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTableLastName(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTableLastName(columnName) {
+
         var currentOrder = $('#lastNameHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/User/SortUsers',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update LastName header to indicate sorting order
                 $('#lastNameHeader').text('Last Name ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -93,27 +81,20 @@
         });
     }
 
-    // Continuous sorting loop when LastName hyperlink is clicked
     $(document).on('click', '#lastNameHeader', function () {
-        // Call sortTableLastName function with 'LastName' column
         sortTableLastName('LastName');
     });</script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTable(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTable(columnName) {
+
         var currentOrder = $('#eventIDHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/User/SortUsers',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update EventID header to indicate sorting order
                 $('#eventIDHeader').text('Event ID ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -122,8 +103,6 @@
         });
     }
 
-    // Continuous sorting loop when Event ID hyperlink is clicked
     $(document).on('click', '#eventIDHeader', function () {
-        // Call sortTable function with 'EventID' column
         sortTable('EventID');
     });</script>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lgyFdJ54craSPM1oXzPz3v5MXy7RXkpJcDTtREBoV04=",
+  "Hash": "LUUFuhdIPDERueoPAejytI5L3L/HXreJnA9RySECgvk=",
   "Source": "FinalProject2",
   "BasePath": "_content/FinalProject2",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/macuser/Chanise/Repos/FinalProject2/obj/Debug/net6.0/scopedcss/projectbundle/FinalProject2.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/.DS_Store",
+      "SourceId": "FinalProject2",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/",
+      "BasePath": "_content/FinalProject2",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
+      "Identity": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/css/.DS_Store",
+      "SourceId": "FinalProject2",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/",
+      "BasePath": "_content/FinalProject2",
+      "RelativePath": "css/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/.DS_Store"
     },
     {
       "Identity": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/css/site.css",

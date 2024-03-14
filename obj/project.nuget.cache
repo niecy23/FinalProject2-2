@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "s21HUAL7ZaJiWmxhs/l3zA2b9giGn/QUAh0ndiWBh4RKQTkXDFSf8AeTmkhw1i7I3dknhz5IEPY5le8xNnACJA==",
+  "dgSpecHash": "rU1quRua5+G4yU9wSY33huc62ULSt808JVTmJbun61PzD2SAgmloxkO6fc6Yu+Aw9w1NWtqQlZ7kXec7TaGdlg==",
   "success": true,
   "projectFilePath": "/Users/macuser/Chanise/Repos/FinalProject2/FinalProject2.csproj",
   "expectedPackageFiles": [
     "/Users/macuser/.nuget/packages/bouncycastle.cryptography/2.2.1/bouncycastle.cryptography.2.2.1.nupkg.sha512",
-    "/Users/macuser/.nuget/packages/dapper/2.1.28/dapper.2.1.28.nupkg.sha512",
+    "/Users/macuser/.nuget/packages/dapper/2.1.37/dapper.2.1.37.nupkg.sha512",
     "/Users/macuser/.nuget/packages/google.protobuf/3.25.1/google.protobuf.3.25.1.nupkg.sha512",
     "/Users/macuser/.nuget/packages/k4os.compression.lz4/1.3.5/k4os.compression.lz4.1.3.5.nupkg.sha512",
     "/Users/macuser/.nuget/packages/k4os.compression.lz4.streams/1.3.5/k4os.compression.lz4.streams.1.3.5.nupkg.sha512",

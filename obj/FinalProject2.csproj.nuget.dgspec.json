@@ -41,7 +41,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.1.28, )"
+              "version": "[2.1.37, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",

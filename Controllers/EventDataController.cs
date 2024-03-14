@@ -45,7 +45,7 @@ namespace FinalProject2.Controllers
             return View(viewModel);
         }
 
-        [HttpPost] // Add this attribute to handle POST requests
+        [HttpPost]
         public IActionResult UpdateEventToDatabase(EventDetailsViewModel viewModel)
         {
             repo.UpdateEventData(viewModel.EventData);
@@ -99,10 +99,8 @@ namespace FinalProject2.Controllers
 
         public IActionResult SortEvents(string column, string sortOrder)
         {
-            //Assuming you have a repository method to retrieve all events
             var allEvents = repo.GetAllEventsData();
 
-            // Implement sorting logic based on the specified column and sortOrder
             IEnumerable<EventData> sortedEvents;
 
             switch (column)
@@ -118,15 +116,13 @@ namespace FinalProject2.Controllers
 
                 case "DateAndTime":
                     sortedEvents = sortOrder == "asc" ? allEvents.OrderBy(e => e.DateAndTime) : allEvents.OrderByDescending(e => e.DateAndTime);
-                   break;
+                    break;
 
-                // Add additional cases for other columns if needed
                 default:
                     sortedEvents = allEvents;
                     break;
             }
 
-            // Return a partial view with the sorted events
             return PartialView("_EventTablePartial", sortedEvents);
 
         }

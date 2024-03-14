@@ -47,7 +47,7 @@ namespace FinalProject2
         public User GetUser(int id)
         {
             return _conn.QuerySingle<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName\nFROM Events INNER JOIN Users ON Users.EventID = Events.EventID WHERE USERID = @id", new { id = id });
-            }
+        }
 
         public void InsertUser(User userToInsert)
         {

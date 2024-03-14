@@ -36,21 +36,16 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTableEventID(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTableEventID(columnName) {
+
         var currentOrder = $('#eventIDHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/EventData/SortEvents',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update EventID header to indicate sorting order
                 $('#eventIDHeader').text('Event ID ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -59,27 +54,20 @@
         });
     }
 
-    // Continuous sorting loop when EventID hyperlink is clicked
     $(document).on('click', '#eventIDHeader', function () {
-        // Call sortTableEventID function with 'EventID' column
         sortTableEventID('EventID');
     });</script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTableEventName(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTableEventName(columnName) {
+
         var currentOrder = $('#eventNameHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/EventData/SortEvents',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update EventName header to indicate sorting order
                 $('#eventNameHeader').text('Event Name ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -88,27 +76,20 @@
         });
     }
 
-    // Continuous sorting loop when EventName hyperlink is clicked
     $(document).on('click', '#eventNameHeader', function () {
-        // Call sortTableEventName function with 'EventName' column
         sortTableEventName('EventName');
     });</script>
 
-<script>// Function to toggle sorting order and update table
-    function sortTableDateAndTime(columnName) {
-        // Retrieve the current sorting order from the header text
+<script>function sortTableDateAndTime(columnName) {
+
         var currentOrder = $('#dateAndTimeHeader').text().includes('▼') ? 'desc' : 'asc';
 
-        // Make AJAX request to toggle sorting order
         $.ajax({
             url: '/EventData/SortEvents',
             data: { column: columnName, sortOrder: currentOrder },
             type: 'GET',
             success: function (data) {
-                // Replace table content with sorted data
                 $('.table tbody').html(data);
-
-                // Update Date And Time header to indicate sorting order
                 $('#dateAndTimeHeader').text('Date And Time ' + (currentOrder === 'asc' ? '▼' : '▲'));
             },
             error: function () {
@@ -117,8 +98,6 @@
         });
     }
 
-    // Continuous sorting loop when DateAndTime hyperlink is clicked
     $(document).on('click', '#dateAndTimeHeader', function () {
-        // Call sortTableDateAndTime function with 'DateAndTime' column
         sortTableDateAndTime('DateAndTime');
     });</script>

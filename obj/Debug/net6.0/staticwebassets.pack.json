@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets/FinalProject2.bundle.scp.css"
     },
     {
+      "Id": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/css/.DS_Store",
+      "PackagePath": "staticwebassets/css/.DS_Store"
+    },
+    {
       "Id": "/Users/macuser/Chanise/Repos/FinalProject2/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
